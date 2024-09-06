@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1953259897 &8574412962073106934
+TerrainLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: layer_T_Snow_Ground_2_A_SMT
+  m_DiffuseTexture: {fileID: 2800000, guid: 9cc93285ee5945f46ad90758bc99e7e6, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 8698918e9333b4a49886c73e44ef09bc, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: 56ed5bad6a5a1fa439d19aa9cdc1b4cf, type: 3}
+  m_TileSize: {x: 8, y: 8}
+  m_TileOffset: {x: 0, y: 0}
+  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Metallic: 0.2
+  m_Smoothness: 1
+  m_NormalScale: 1
+  m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
