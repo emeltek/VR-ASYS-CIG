@@ -7,6 +7,18 @@ TagManager:
   - Collider1
   - Collider2
   - Collider3
+  - QDSUIBackplateGradient
+  - QDSUISecondaryButton
+  - QDSUIPrimaryButton
+  - QDSUISharedThemeColor
+  - QDSUIAccentColor
+  - QDSUITextInvertedColor
+  - QDSUIIcon
+  - QDSUITextSecondaryInvertedColor
+  - Tree
+  - LeftHand
+  - RightHand
+  - Collider4
   layers:
   - Default
   - TransparentFX

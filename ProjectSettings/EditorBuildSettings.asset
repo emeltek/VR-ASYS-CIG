@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Avalanche/Avalanche.unity
+    guid: 13ac1a2fd4a790d49b7eb31af26d30e9
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 26580fad07989fc46b5b02fb6912c973, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: ade856e958e87544ca1d3ac7d18cc43e, type: 2}
