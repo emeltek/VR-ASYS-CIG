@@ -28,4 +28,19 @@ public class SceneManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+    public void LoadNextScene()
+    {
+        // Mevcut sahnenin sırasını (Build Index) alıp 1 artırıyoruz
+        int nextSceneIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;
+
+        // Eğer sonraki indeks toplam sahne sayısından küçükse sahneyi yükle
+        if (nextSceneIndex < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Sırada başka sahne yok! Build Settings listesinin sonundasınız.");
+        }
+    }
 }

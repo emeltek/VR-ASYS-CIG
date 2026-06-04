@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class AvanlancheTrigger : MonoBehaviour
 {
    public ParticleSystem particle1;
@@ -16,6 +16,13 @@ public class AvanlancheTrigger : MonoBehaviour
    public ParticleSystem particle7;
    public static bool isAvalancheNear = false;
    public GameObject terrain;
+   public GameObject warningObject;
+   public GameObject secondUIPanel;
+
+   private void Start()
+   {
+      secondUIPanel.SetActive(false);
+   }
 
    private void OnTriggerEnter(Collider other)
    {
@@ -43,9 +50,14 @@ public class AvanlancheTrigger : MonoBehaviour
       if (other.CompareTag("Collider4"))
       {
          particle7.Play();
-
+         warningObject.SetActive(false);
          isAvalancheNear = true;
          Debug.Log("Smoke Yaklaştı");
+         transform.DOMoveY(402f, 3).From(348f);
+         warningObject.transform.position = new Vector3(1706.13562f, 391.006714f, 4461.86816f);
+         warningObject.transform.rotation = Quaternion.Euler(-70.541f, 0, 0);
+         warningObject.SetActive(true);
+         secondUIPanel.SetActive(true);
 
       }
       
