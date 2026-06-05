@@ -53,8 +53,8 @@ public class AvanlancheTrigger : MonoBehaviour
          warningObject.SetActive(false);
          isAvalancheNear = true;
          Debug.Log("Smoke Yaklaştı");
-         transform.DOMoveY(402f, 3).From(348f);
-         warningObject.transform.position = new Vector3(1706.13562f, 391.006714f, 4461.86816f);
+         terrain.transform.DOMoveY(402f, 3).From(348f);
+         warningObject.transform.position = new Vector3(1706.13562f, 436f, 4461.86816f);
          warningObject.transform.rotation = Quaternion.Euler(-70.541f, 0, 0);
          warningObject.SetActive(true);
          secondUIPanel.SetActive(true);

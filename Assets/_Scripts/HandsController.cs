@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HandsController : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class HandsController : MonoBehaviour
     private bool bothHandsInside = false;
     public AudioSource audioSource;
     private bool isVoiceOver = false;
-    
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("LeftHand") && SafeAreaController.isPlayerInside == true)
@@ -30,7 +29,7 @@ public class HandsController : MonoBehaviour
 
     public void CheckHands()
     {
-        if (leftHandInside && rightHandInside && ParticleController.IsAducationSceneFinished == false && isVoiceOver == false)
+        if (leftHandInside && rightHandInside && ParticleController.IsAducationSceneFinished == false && isVoiceOver == false && sceneManager.isSceneStart == true && SafeAreaController.isPlayerInside == true)
         {
             audioSource.Play();
             isVoiceOver = true;
