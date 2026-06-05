@@ -12,6 +12,7 @@ public class HandsController : MonoBehaviour
     private bool bothHandsInside = false;
     public AudioSource audioSource;
     private bool isVoiceOver = false;
+    public bool isExamScene = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("LeftHand") && SafeAreaController.isPlayerInside == true)
@@ -31,7 +32,12 @@ public class HandsController : MonoBehaviour
     {
         if (leftHandInside && rightHandInside && ParticleController.IsAducationSceneFinished == false && isVoiceOver == false && sceneManager.isSceneStart == true && SafeAreaController.isPlayerInside == true)
         {
-            audioSource.Play();
+            ScoreManager.Instance.AddScore(30);
+            if (isExamScene == false)
+            {
+                audioSource.Play();
+
+            }
             isVoiceOver = true;
          bothHandsInside = true;   
          Debug.Log("[System] İki elide girdi");

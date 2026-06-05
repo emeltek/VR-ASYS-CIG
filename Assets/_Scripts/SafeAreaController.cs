@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SafeAreaController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SafeAreaController : MonoBehaviour
     public AudioSource audioSource;
     private bool isAudioPlayed = false;
     public SceneManager sceneManager;
+    public bool isExamScene = false;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +19,12 @@ public class SafeAreaController : MonoBehaviour
         {
             if (isAudioPlayed == false && sceneManager.isSceneStart == true && ParticleController.IsAducationSceneFinished == false)
             {
-                audioSource.Play(); 
+                ScoreManager.Instance.AddScore(40);
+                if (isExamScene == false)
+                {
+                    audioSource.Play(); 
+  
+                }
                 isAudioPlayed = true;
 
             }

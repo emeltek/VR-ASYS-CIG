@@ -10,14 +10,16 @@ public class CharacterColliderTrigger : MonoBehaviour
     public SceneManager sceneManager;
     public AudioSource treeWarningVoice;
     private bool isWarningVoicePlayed = false;
+    public bool isExamScene = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Tree") && sceneManager.isSceneStart == true)
         {
+            ScoreManager.Instance.DecreaseScore(20);
             isTreeNear = true;
             Debug.Log("Karakter İçeride");
-            if (isWarningVoicePlayed == false)
+            if (isWarningVoicePlayed == false && isExamScene == false)
             {
                 treeWarningVoice.Play();
                 isWarningVoicePlayed = true;

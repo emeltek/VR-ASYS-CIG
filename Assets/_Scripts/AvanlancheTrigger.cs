@@ -18,10 +18,12 @@ public class AvanlancheTrigger : MonoBehaviour
    public GameObject terrain;
    public GameObject warningObject;
    public GameObject secondUIPanel;
+   public GameObject scorePanel;
 
    private void Start()
    {
       secondUIPanel.SetActive(false);
+      scorePanel.SetActive(false);
    }
 
    private void OnTriggerEnter(Collider other)
@@ -58,6 +60,7 @@ public class AvanlancheTrigger : MonoBehaviour
          warningObject.transform.rotation = Quaternion.Euler(-70.541f, 0, 0);
          warningObject.SetActive(true);
          secondUIPanel.SetActive(true);
+         scorePanel.SetActive(true);
 
       }
       
