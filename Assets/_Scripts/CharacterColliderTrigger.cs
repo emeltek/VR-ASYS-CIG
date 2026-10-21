@@ -16,7 +16,8 @@ public class CharacterColliderTrigger : MonoBehaviour
     {
         if (other.CompareTag("Tree") && sceneManager.isSceneStart == true)
         {
-            ScoreManager.Instance.DecreaseScore(20);
+            // GNN puanlayıcı etkinse ağaç altı, maruziyet süresine göre puanlanır
+            if (!GnnRiskScorer.IsScoring) ScoreManager.Instance.DecreaseScore(20);
             isTreeNear = true;
             Debug.Log("Karakter İçeride");
             if (isWarningVoicePlayed == false && isExamScene == false)

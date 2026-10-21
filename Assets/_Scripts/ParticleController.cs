@@ -8,6 +8,7 @@ public class ParticleController : MonoBehaviour
     public static bool IsAducationSceneFinished = false;
     public AudioSource avalancheVoice;
     public bool isExamScene = false;
+
     private void OnParticleSystemStopped()
     {
         Debug.Log("Çığ partikülü bitti! Metot tetikleniyor...");
@@ -19,6 +20,8 @@ public class ParticleController : MonoBehaviour
 
         }
 
-        ScoreManager.Instance.GetScore();
+        // Senaryo bitti: bonus / cezalar kapanır, puan kesinleşir ve risk etiketi gösterilir
+        IsAducationSceneFinished = true;
+        ScoreManager.Instance.FinalizeScore();
     }
 }

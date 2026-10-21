@@ -1,0 +1,977 @@
+{
+  "args": {
+    "hidden": 32,
+    "layers": 2,
+    "dropout": 0.2,
+    "lr": 0.01,
+    "weight_decay": 0.0005,
+    "epochs": 500,
+    "patience": 80,
+    "block_size": 2.0,
+    "seed": 42,
+    "class_weight": "sqrt",
+    "folds": 5,
+    "repeats": 3,
+    "cv": true,
+    "onnx": false
+  },
+  "graphs": [
+    {
+      "file": "VR-ASYS-CIG-Sinav_graph_0.json",
+      "nodes": 28545,
+      "edges": 107153
+    },
+    {
+      "file": "VR-ASYS-CIG-Sinav_graph_1.json",
+      "nodes": 28521,
+      "edges": 107091
+    },
+    {
+      "file": "VR-ASYS-CIG-Sinav_graph_2.json",
+      "nodes": 28536,
+      "edges": 107120
+    },
+    {
+      "file": "VR-ASYS-CIG-Sinav_graph_3.json",
+      "nodes": 28448,
+      "edges": 106692
+    }
+  ],
+  "feature_names": [
+    "slope",
+    "tree_distance",
+    "rock_distance",
+    "shelter",
+    "avalanche_path_distance",
+    "relative_elevation",
+    "openness",
+    "overhead_clearance"
+  ],
+  "cross_validation": {
+    "folds": [
+      {
+        "accuracy": 0.9584,
+        "macro_f1": 0.7205,
+        "per_class": {
+          "Safe": {
+            "precision": 0.2394,
+            "recall": 0.9323,
+            "f1": 0.381,
+            "support": 133
+          },
+          "Exposed": {
+            "precision": 0.9866,
+            "recall": 0.9688,
+            "f1": 0.9776,
+            "support": 21326
+          },
+          "Danger": {
+            "precision": 0.803,
+            "recall": 0.803,
+            "f1": 0.803,
+            "support": 1406
+          }
+        },
+        "confusion_matrix": [
+          [
+            124,
+            9,
+            0
+          ],
+          [
+            388,
+            20661,
+            277
+          ],
+          [
+            6,
+            271,
+            1129
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9805,
+          "macro_f1": 0.8391,
+          "per_class_f1": {
+            "Safe": 0.5761,
+            "Exposed": 0.9895,
+            "Danger": 0.9518
+          }
+        },
+        "repeat": 0,
+        "fold": 0
+      },
+      {
+        "accuracy": 0.9604,
+        "macro_f1": 0.8033,
+        "per_class": {
+          "Safe": {
+            "precision": 0.5157,
+            "recall": 0.9425,
+            "f1": 0.6667,
+            "support": 261
+          },
+          "Exposed": {
+            "precision": 0.9829,
+            "recall": 0.9755,
+            "f1": 0.9792,
+            "support": 21655
+          },
+          "Danger": {
+            "precision": 0.7779,
+            "recall": 0.7505,
+            "f1": 0.7639,
+            "support": 1535
+          }
+        },
+        "confusion_matrix": [
+          [
+            246,
+            15,
+            0
+          ],
+          [
+            201,
+            21125,
+            329
+          ],
+          [
+            30,
+            353,
+            1152
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9854,
+          "macro_f1": 0.908,
+          "per_class_f1": {
+            "Safe": 0.8,
+            "Exposed": 0.9926,
+            "Danger": 0.9313
+          }
+        },
+        "repeat": 0,
+        "fold": 1
+      },
+      {
+        "accuracy": 0.9745,
+        "macro_f1": 0.8344,
+        "per_class": {
+          "Safe": {
+            "precision": 0.5143,
+            "recall": 0.9692,
+            "f1": 0.672,
+            "support": 130
+          },
+          "Exposed": {
+            "precision": 0.9916,
+            "recall": 0.984,
+            "f1": 0.9878,
+            "support": 20803
+          },
+          "Danger": {
+            "precision": 0.8323,
+            "recall": 0.855,
+            "f1": 0.8435,
+            "support": 1648
+          }
+        },
+        "confusion_matrix": [
+          [
+            126,
+            4,
+            0
+          ],
+          [
+            49,
+            20470,
+            284
+          ],
+          [
+            70,
+            169,
+            1409
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9919,
+          "macro_f1": 0.9012,
+          "per_class_f1": {
+            "Safe": 0.7468,
+            "Exposed": 0.9968,
+            "Danger": 0.9601
+          }
+        },
+        "repeat": 0,
+        "fold": 2
+      },
+      {
+        "accuracy": 0.9682,
+        "macro_f1": 0.8304,
+        "per_class": {
+          "Safe": {
+            "precision": 0.5471,
+            "recall": 0.9414,
+            "f1": 0.6921,
+            "support": 222
+          },
+          "Exposed": {
+            "precision": 0.9947,
+            "recall": 0.9721,
+            "f1": 0.9832,
+            "support": 20718
+          },
+          "Danger": {
+            "precision": 0.738,
+            "recall": 0.9121,
+            "f1": 0.8159,
+            "support": 1319
+          }
+        },
+        "confusion_matrix": [
+          [
+            209,
+            4,
+            9
+          ],
+          [
+            161,
+            20139,
+            418
+          ],
+          [
+            12,
+            104,
+            1203
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9909,
+          "macro_f1": 0.9374,
+          "per_class_f1": {
+            "Safe": 0.8529,
+            "Exposed": 0.9952,
+            "Danger": 0.9641
+          }
+        },
+        "repeat": 0,
+        "fold": 3
+      },
+      {
+        "accuracy": 0.9724,
+        "macro_f1": 0.8638,
+        "per_class": {
+          "Safe": {
+            "precision": 0.6631,
+            "recall": 0.9801,
+            "f1": 0.791,
+            "support": 251
+          },
+          "Exposed": {
+            "precision": 0.9929,
+            "recall": 0.9786,
+            "f1": 0.9857,
+            "support": 21306
+          },
+          "Danger": {
+            "precision": 0.7649,
+            "recall": 0.8714,
+            "f1": 0.8147,
+            "support": 1337
+          }
+        },
+        "confusion_matrix": [
+          [
+            246,
+            5,
+            0
+          ],
+          [
+            98,
+            20850,
+            358
+          ],
+          [
+            27,
+            145,
+            1165
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9885,
+          "macro_f1": 0.9207,
+          "per_class_f1": {
+            "Safe": 0.8297,
+            "Exposed": 0.9943,
+            "Danger": 0.938
+          }
+        },
+        "repeat": 0,
+        "fold": 4
+      },
+      {
+        "accuracy": 0.9654,
+        "macro_f1": 0.8615,
+        "per_class": {
+          "Safe": {
+            "precision": 0.6355,
+            "recall": 0.9944,
+            "f1": 0.7755,
+            "support": 356
+          },
+          "Exposed": {
+            "precision": 0.9948,
+            "recall": 0.9673,
+            "f1": 0.9809,
+            "support": 21158
+          },
+          "Danger": {
+            "precision": 0.745,
+            "recall": 0.9322,
+            "f1": 0.8282,
+            "support": 1533
+          }
+        },
+        "confusion_matrix": [
+          [
+            354,
+            2,
+            0
+          ],
+          [
+            203,
+            20466,
+            489
+          ],
+          [
+            0,
+            104,
+            1429
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9894,
+          "macro_f1": 0.9446,
+          "per_class_f1": {
+            "Safe": 0.8713,
+            "Exposed": 0.9941,
+            "Danger": 0.9683
+          }
+        },
+        "repeat": 1,
+        "fold": 0
+      },
+      {
+        "accuracy": 0.9683,
+        "macro_f1": 0.8124,
+        "per_class": {
+          "Safe": {
+            "precision": 0.4903,
+            "recall": 0.9212,
+            "f1": 0.64,
+            "support": 165
+          },
+          "Exposed": {
+            "precision": 0.9868,
+            "recall": 0.9798,
+            "f1": 0.9833,
+            "support": 20356
+          },
+          "Danger": {
+            "precision": 0.8142,
+            "recall": 0.8136,
+            "f1": 0.8139,
+            "support": 1470
+          }
+        },
+        "confusion_matrix": [
+          [
+            152,
+            11,
+            2
+          ],
+          [
+            140,
+            19945,
+            271
+          ],
+          [
+            18,
+            256,
+            1196
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9899,
+          "macro_f1": 0.9204,
+          "per_class_f1": {
+            "Safe": 0.81,
+            "Exposed": 0.9946,
+            "Danger": 0.9567
+          }
+        },
+        "repeat": 1,
+        "fold": 1
+      },
+      {
+        "accuracy": 0.9636,
+        "macro_f1": 0.7796,
+        "per_class": {
+          "Safe": {
+            "precision": 0.435,
+            "recall": 0.7956,
+            "f1": 0.5625,
+            "support": 181
+          },
+          "Exposed": {
+            "precision": 0.9937,
+            "recall": 0.9715,
+            "f1": 0.9825,
+            "support": 21550
+          },
+          "Danger": {
+            "precision": 0.7257,
+            "recall": 0.8762,
+            "f1": 0.7939,
+            "support": 1600
+          }
+        },
+        "confusion_matrix": [
+          [
+            144,
+            18,
+            19
+          ],
+          [
+            103,
+            20936,
+            511
+          ],
+          [
+            84,
+            114,
+            1402
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9842,
+          "macro_f1": 0.8459,
+          "per_class_f1": {
+            "Safe": 0.6138,
+            "Exposed": 0.9933,
+            "Danger": 0.9306
+          }
+        },
+        "repeat": 1,
+        "fold": 2
+      },
+      {
+        "accuracy": 0.9701,
+        "macro_f1": 0.7676,
+        "per_class": {
+          "Safe": {
+            "precision": 0.3532,
+            "recall": 0.8558,
+            "f1": 0.5,
+            "support": 104
+          },
+          "Exposed": {
+            "precision": 0.9888,
+            "recall": 0.9801,
+            "f1": 0.9844,
+            "support": 21538
+          },
+          "Danger": {
+            "precision": 0.8074,
+            "recall": 0.8297,
+            "f1": 0.8184,
+            "support": 1450
+          }
+        },
+        "confusion_matrix": [
+          [
+            89,
+            15,
+            0
+          ],
+          [
+            141,
+            21110,
+            287
+          ],
+          [
+            22,
+            225,
+            1203
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9903,
+          "macro_f1": 0.8927,
+          "per_class_f1": {
+            "Safe": 0.7273,
+            "Exposed": 0.9951,
+            "Danger": 0.9558
+          }
+        },
+        "repeat": 1,
+        "fold": 3
+      },
+      {
+        "accuracy": 0.9602,
+        "macro_f1": 0.7459,
+        "per_class": {
+          "Safe": {
+            "precision": 0.3194,
+            "recall": 1.0,
+            "f1": 0.4842,
+            "support": 191
+          },
+          "Exposed": {
+            "precision": 0.9909,
+            "recall": 0.9694,
+            "f1": 0.98,
+            "support": 21206
+          },
+          "Danger": {
+            "precision": 0.7568,
+            "recall": 0.7911,
+            "f1": 0.7736,
+            "support": 1192
+          }
+        },
+        "confusion_matrix": [
+          [
+            191,
+            0,
+            0
+          ],
+          [
+            346,
+            20557,
+            303
+          ],
+          [
+            61,
+            188,
+            943
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9795,
+          "macro_f1": 0.829,
+          "per_class_f1": {
+            "Safe": 0.559,
+            "Exposed": 0.9903,
+            "Danger": 0.9376
+          }
+        },
+        "repeat": 1,
+        "fold": 4
+      },
+      {
+        "accuracy": 0.968,
+        "macro_f1": 0.8446,
+        "per_class": {
+          "Safe": {
+            "precision": 0.672,
+            "recall": 0.9812,
+            "f1": 0.7977,
+            "support": 213
+          },
+          "Exposed": {
+            "precision": 0.9756,
+            "recall": 0.9932,
+            "f1": 0.9843,
+            "support": 20924
+          },
+          "Danger": {
+            "precision": 0.907,
+            "recall": 0.6418,
+            "f1": 0.7517,
+            "support": 1625
+          }
+        },
+        "confusion_matrix": [
+          [
+            209,
+            2,
+            2
+          ],
+          [
+            37,
+            20782,
+            105
+          ],
+          [
+            65,
+            517,
+            1043
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9877,
+          "macro_f1": 0.9051,
+          "per_class_f1": {
+            "Safe": 0.8197,
+            "Exposed": 0.9949,
+            "Danger": 0.9007
+          }
+        },
+        "repeat": 2,
+        "fold": 0
+      },
+      {
+        "accuracy": 0.9668,
+        "macro_f1": 0.79,
+        "per_class": {
+          "Safe": {
+            "precision": 0.4349,
+            "recall": 0.8355,
+            "f1": 0.5721,
+            "support": 152
+          },
+          "Exposed": {
+            "precision": 0.992,
+            "recall": 0.9733,
+            "f1": 0.9826,
+            "support": 20898
+          },
+          "Danger": {
+            "precision": 0.7553,
+            "recall": 0.886,
+            "f1": 0.8154,
+            "support": 1456
+          }
+        },
+        "confusion_matrix": [
+          [
+            127,
+            1,
+            24
+          ],
+          [
+            163,
+            20341,
+            394
+          ],
+          [
+            2,
+            164,
+            1290
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9902,
+          "macro_f1": 0.9293,
+          "per_class_f1": {
+            "Safe": 0.8372,
+            "Exposed": 0.9949,
+            "Danger": 0.9559
+          }
+        },
+        "repeat": 2,
+        "fold": 1
+      },
+      {
+        "accuracy": 0.9626,
+        "macro_f1": 0.8105,
+        "per_class": {
+          "Safe": {
+            "precision": 0.5083,
+            "recall": 0.9533,
+            "f1": 0.6631,
+            "support": 257
+          },
+          "Exposed": {
+            "precision": 0.9877,
+            "recall": 0.9719,
+            "f1": 0.9798,
+            "support": 21148
+          },
+          "Danger": {
+            "precision": 0.7587,
+            "recall": 0.8213,
+            "f1": 0.7887,
+            "support": 1382
+          }
+        },
+        "confusion_matrix": [
+          [
+            245,
+            12,
+            0
+          ],
+          [
+            233,
+            20554,
+            361
+          ],
+          [
+            4,
+            243,
+            1135
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9843,
+          "macro_f1": 0.8993,
+          "per_class_f1": {
+            "Safe": 0.7659,
+            "Exposed": 0.9916,
+            "Danger": 0.9405
+          }
+        },
+        "repeat": 2,
+        "fold": 2
+      },
+      {
+        "accuracy": 0.9601,
+        "macro_f1": 0.7295,
+        "per_class": {
+          "Safe": {
+            "precision": 0.303,
+            "recall": 0.828,
+            "f1": 0.4437,
+            "support": 157
+          },
+          "Exposed": {
+            "precision": 0.99,
+            "recall": 0.9693,
+            "f1": 0.9796,
+            "support": 21498
+          },
+          "Danger": {
+            "precision": 0.7179,
+            "recall": 0.8191,
+            "f1": 0.7652,
+            "support": 1255
+          }
+        },
+        "confusion_matrix": [
+          [
+            130,
+            27,
+            0
+          ],
+          [
+            255,
+            20839,
+            404
+          ],
+          [
+            44,
+            183,
+            1028
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9829,
+          "macro_f1": 0.8489,
+          "per_class_f1": {
+            "Safe": 0.624,
+            "Exposed": 0.9917,
+            "Danger": 0.9311
+          }
+        },
+        "repeat": 2,
+        "fold": 3
+      },
+      {
+        "accuracy": 0.9647,
+        "macro_f1": 0.8221,
+        "per_class": {
+          "Safe": {
+            "precision": 0.5166,
+            "recall": 1.0,
+            "f1": 0.6812,
+            "support": 218
+          },
+          "Exposed": {
+            "precision": 0.9899,
+            "recall": 0.9726,
+            "f1": 0.9812,
+            "support": 21340
+          },
+          "Danger": {
+            "precision": 0.764,
+            "recall": 0.8481,
+            "f1": 0.8038,
+            "support": 1527
+          }
+        },
+        "confusion_matrix": [
+          [
+            218,
+            0,
+            0
+          ],
+          [
+            184,
+            20756,
+            400
+          ],
+          [
+            20,
+            212,
+            1295
+          ]
+        ],
+        "tolerant": {
+          "accuracy": 0.9862,
+          "macro_f1": 0.8995,
+          "per_class_f1": {
+            "Safe": 0.7515,
+            "Exposed": 0.9925,
+            "Danger": 0.9544
+          }
+        },
+        "repeat": 2,
+        "fold": 4
+      }
+    ],
+    "summary": {
+      "accuracy": {
+        "mean": 0.9656,
+        "std": 0.0048
+      },
+      "macro_f1": {
+        "mean": 0.8011,
+        "std": 0.0451
+      },
+      "tolerant_accuracy": {
+        "mean": 0.9868,
+        "std": 0.0039
+      },
+      "tolerant_macro_f1": {
+        "mean": 0.8947,
+        "std": 0.0369
+      },
+      "f1_Safe": {
+        "mean": 0.6215,
+        "std": 0.1275
+      },
+      "tolerant_f1_Safe": {
+        "mean": 0.7457,
+        "std": 0.1042
+      },
+      "f1_Exposed": {
+        "mean": 0.9821,
+        "std": 0.0027
+      },
+      "tolerant_f1_Exposed": {
+        "mean": 0.9934,
+        "std": 0.002
+      },
+      "f1_Danger": {
+        "mean": 0.7996,
+        "std": 0.0263
+      },
+      "tolerant_f1_Danger": {
+        "mean": 0.9451,
+        "std": 0.0176
+      }
+    }
+  },
+  "train": {
+    "accuracy": 0.9712,
+    "macro_f1": 0.8352,
+    "per_class": {
+      "Safe": {
+        "precision": 0.5309,
+        "recall": 0.9757,
+        "f1": 0.6876,
+        "support": 864
+      },
+      "Exposed": {
+        "precision": 0.9932,
+        "recall": 0.9779,
+        "f1": 0.9855,
+        "support": 84482
+      },
+      "Danger": {
+        "precision": 0.7948,
+        "recall": 0.8738,
+        "f1": 0.8324,
+        "support": 5839
+      }
+    },
+    "confusion_matrix": [
+      [
+        843,
+        21,
+        0
+      ],
+      [
+        552,
+        82613,
+        1317
+      ],
+      [
+        193,
+        544,
+        5102
+      ]
+    ],
+    "tolerant": {
+      "accuracy": 0.9906,
+      "macro_f1": 0.9183,
+      "per_class_f1": {
+        "Safe": 0.7956,
+        "Exposed": 0.9957,
+        "Danger": 0.9635
+      }
+    }
+  },
+  "val": {
+    "accuracy": 0.9581,
+    "macro_f1": 0.7259,
+    "per_class": {
+      "Safe": {
+        "precision": 0.2312,
+        "recall": 0.9699,
+        "f1": 0.3734,
+        "support": 133
+      },
+      "Exposed": {
+        "precision": 0.9935,
+        "recall": 0.9616,
+        "f1": 0.9773,
+        "support": 21326
+      },
+      "Danger": {
+        "precision": 0.7628,
+        "recall": 0.9033,
+        "f1": 0.8271,
+        "support": 1406
+      }
+    },
+    "confusion_matrix": [
+      [
+        129,
+        4,
+        0
+      ],
+      [
+        423,
+        20508,
+        395
+      ],
+      [
+        6,
+        130,
+        1270
+      ]
+    ],
+    "tolerant": {
+      "accuracy": 0.9816,
+      "macro_f1": 0.8434,
+      "per_class_f1": {
+        "Safe": 0.5656,
+        "Exposed": 0.9899,
+        "Danger": 0.9746
+      }
+    }
+  },
+  "test": null
+}

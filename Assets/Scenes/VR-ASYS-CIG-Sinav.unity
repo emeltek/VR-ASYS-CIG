@@ -11367,6 +11367,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 176638927}
   currentScore: 100
+  guvenliEsigi: 75
+  ortaRiskEsigi: 50
+  riskliEsigi: 25
 --- !u!1 &359008297
 GameObject:
   m_ObjectHideFlags: 0
@@ -33276,6 +33279,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2358965162368711757, guid: 2582da5180bd69648b4c64781cda23f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1505576998}
+    - targetCorrespondingSourceObject: {fileID: 2358965162368711757, guid: 2582da5180bd69648b4c64781cda23f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1505576999}
   m_SourcePrefab: {fileID: 100100000, guid: 2582da5180bd69648b4c64781cda23f5, type: 3}
 --- !u!1 &801499855
 GameObject:
@@ -33606,6 +33612,110 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &830471440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830471443}
+  - component: {fileID: 830471442}
+  - component: {fileID: 830471441}
+  m_Layer: 0
+  m_Name: gnn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &830471441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830471440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b1dafefa60b42fd9b06c0cbbdf3d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riskPredictor: {fileID: 0}
+  sceneManager: {fileID: 0}
+  trackedTarget: {fileID: 0}
+  startingScore: 100
+  exposedImpactPenalty: 50
+  dangerImpactPenalty: 60
+  noPosturePenalty: 30
+  postureWindow: 3
+  treeBudget: 30
+  entryShare: 0.4
+  exposureTimeConstant: 5
+  updateInterval: 0.5
+  showDebugLogs: 1
+--- !u!114 &830471442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830471440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 723b0568fafc94f78ba0daffb8ba8a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weightsJson: {fileID: 0}
+  graphJson: {fileID: 0}
+  siteArea: {fileID: 0}
+  avalanchePath: []
+  graphSettings:
+    worldScale: 6.44
+    cellSize: 0.5
+    siteMargin: 10
+    hazardProbeDistance: 30
+    shelterProbeDistance: 8
+    clearanceProbeDistance: 5
+    overheadProbeDistance: 6
+    elevationRadius: 5
+    bodyRadius: 0.25
+    maxSlope: 45
+    treeKeywords:
+    - tree
+    - spruce
+    - pine
+    - populus
+    - fir
+    - agac
+    - "a\u011Fa\xE7"
+    rockKeywords:
+    - stone
+    - rock
+    - kaya
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    gridOffset: {x: 0, y: 0}
+  drawGizmos: 1
+  gizmoShowsDecision: 1
+  showDebugLogs: 1
+--- !u!4 &830471443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830471440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838280232
 GameObject:
   m_ObjectHideFlags: 0
@@ -52373,6 +52483,27 @@ MonoBehaviour:
   audioSource: {fileID: 911461979}
   sceneManager: {fileID: 351649776}
   isExamScene: 1
+--- !u!65 &1505576999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505576996}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0948708, y: 0.733468, z: 0.9492925}
+  m_Center: {x: 0.44003454, y: 0.33748645, z: -0.45223823}
 --- !u!1 &1516698027
 GameObject:
   m_ObjectHideFlags: 0
@@ -153233,3 +153364,4 @@ SceneRoots:
   - {fileID: 176638925}
   - {fileID: 1242747033}
   - {fileID: 252250246}
+  - {fileID: 830471443}

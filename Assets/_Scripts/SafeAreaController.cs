@@ -11,7 +11,6 @@ public class SafeAreaController : MonoBehaviour
     private bool isAudioPlayed = false;
     public SceneManager sceneManager;
     public bool isExamScene = false;
-    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,7 +18,8 @@ public class SafeAreaController : MonoBehaviour
         {
             if (isAudioPlayed == false && sceneManager.isSceneStart == true && ParticleController.IsAducationSceneFinished == false)
             {
-                ScoreManager.Instance.AddScore(40);
+                // GNN puanlayıcı etkinse sığınak, çığ anındaki konumdan puanlanır
+                if (!GnnRiskScorer.IsScoring) ScoreManager.Instance.AddScore(40);
                 if (isExamScene == false)
                 {
                     audioSource.Play(); 

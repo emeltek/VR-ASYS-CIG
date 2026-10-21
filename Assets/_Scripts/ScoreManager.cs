@@ -9,7 +9,16 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     [Header("PUAN AYARLARI")]
-    [SerializeField] private int currentScore = 30; // Simülasyona 100 tam puanla başlıyoruz
+    [Tooltip("Başlangıç puanı. GNN puanlayıcı (GnnRiskScorer) sahnedeyse 100'e ayarlanır ve puan cezalarla düşer.")]
+    [SerializeField] private int currentScore = 30;
+
+    [Header("Risk Etiketi (sonuçta puana göre gösterilir)")]
+    [SerializeField] private int guvenliEsigi = 75;
+    [SerializeField] private int ortaRiskEsigi = 50;
+    [SerializeField] private int riskliEsigi = 25;
+
+    /// <summary>Sonuç kesinleşti: bundan sonra puan değişmez, risk etiketi gösterilir.</summary>
+    public bool IsFinalized { get; private set; }
 
     // Sınır değerlerimizi net olarak tanımlıyoruz
     private const int MAX_SCORE = 100;
@@ -37,6 +46,7 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     public void AddScore(int amount)
     {
+        if (IsFinalized) return;
         currentScore += amount;
         
         // Puanın 100'ü geçmesini engelliyoruz
@@ -51,6 +61,7 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     public void DecreaseScore(int amount)
     {
+        if (IsFinalized) return;
         currentScore -= amount;
         
         // Puanın 0'ın altına düşmesini engelliyoruz
@@ -58,6 +69,40 @@ public class ScoreManager : MonoBehaviour
 
         UpdateScoreUI();
         Debug.Log("Puan Düştü: -" + amount + " | Güncel Puan: " + currentScore);
+    }
+
+    /// <summary>Puanı doğrudan ayarlar (GNN puanlayıcı 100'den başlatmak için kullanır).</summary>
+    public void SetScore(int value)
+    {
+        if (IsFinalized) return;
+        currentScore = Mathf.Clamp(value, MIN_SCORE, MAX_SCORE);
+        UpdateScoreUI();
+    }
+
+    /// <summary>Sonucu kesinleştirir: puan kilitlenir ve risk etiketi gösterilir.</summary>
+    public void FinalizeScore()
+    {
+        if (IsFinalized) return;
+        IsFinalized = true;
+        UpdateScoreUI();
+        Debug.Log($"[Puan] Sonuç: {currentScore} → {GetRiskLabel()}");
+    }
+
+    /// <summary>Puana göre risk etiketi: yüksek puan = doğru davranış = düşük risk.</summary>
+    public string GetRiskLabel()
+    {
+        if (currentScore >= guvenliEsigi) return "Güvenli";
+        if (currentScore >= ortaRiskEsigi) return "Orta Riskli";
+        if (currentScore >= riskliEsigi) return "Riskli";
+        return "Yüksek Riskli";
+    }
+
+    private string GetRiskColor()
+    {
+        if (currentScore >= guvenliEsigi) return "#3CC864";
+        if (currentScore >= ortaRiskEsigi) return "#F0B43C";
+        if (currentScore >= riskliEsigi) return "#F07832";
+        return "#E04646";
     }
 
     /// <summary>
@@ -72,7 +117,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Puan: " + currentScore; 
+            scoreText.text = "Puan: " + currentScore;
+            if (IsFinalized)
+                scoreText.text += $"\n<size=75%><color={GetRiskColor()}>{GetRiskLabel()}</color></size>";
         }
         else
         {
